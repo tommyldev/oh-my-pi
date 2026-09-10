@@ -11,7 +11,7 @@ provider "deepseek" {
 		thinking-mode "effort"
 	}
 	// residue: taxonomy ranks and exact globs do not isolate these models.
-	models "deepseek-v4-flash" {
+	models "deepseek-v4-flash" "deepseek-flash" {
 		max-tokens-field "max_tokens"
 		reasoning-content-field "reasoning_content"
 		requires-assistant-content-for-tool-calls #true

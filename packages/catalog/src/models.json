@@ -70156,26 +70156,25 @@
 		}
 	},
 	"deepseek": {
-		"deepseek-v4-flash": {
-			"id": "deepseek-v4-flash",
-			"name": "DeepSeek V4 Flash",
+		"deepseek-flash": {
+			"id": "deepseek-flash",
+			"name": "DeepSeek V4.1 Flash",
 			"api": "openai-completions",
 			"provider": "deepseek",
 			"baseUrl": "https://api.deepseek.com",
 			"reasoning": true,
 			"input": [
-				"text"
+				"text",
+				"image"
 			],
 			"cost": {
-				"input": 0.14,
-				"output": 0.28,
-				"cacheRead": 0.0028,
+				"input": 0.3,
+				"output": 1.2,
+				"cacheRead": 0.006,
 				"cacheWrite": 0
 			},
 			"contextWindow": 1000000,
 			"maxTokens": 384000,
-			"int": 51.8,
-			"tps": 140,
 			"compat": {
 				"supportsStore": false,
 				"supportsDeveloperRole": false,
@@ -70226,7 +70225,7 @@
 				"nativeKimiK3Reasoning": false,
 				"zaiReasoningEffortDialect": false,
 				"clampOutputToModelMax": false,
-				"stripImageInput": true,
+				"stripImageInput": false,
 				"thinkingLoopGuard": "deepseek",
 				"rejectRootObjectUnion": false,
 				"retryWithoutStrictOnGrammarError": false,
@@ -70286,7 +70285,7 @@
 					"nativeKimiK3Reasoning": false,
 					"zaiReasoningEffortDialect": false,
 					"clampOutputToModelMax": false,
-					"stripImageInput": true,
+					"stripImageInput": false,
 					"thinkingLoopGuard": "deepseek",
 					"rejectRootObjectUnion": false,
 					"retryWithoutStrictOnGrammarError": false,
@@ -70323,9 +70322,9 @@
 				"requiresAssistantContentForToolCalls": true
 			}
 		},
-		"deepseek-v4-flash-vision-exp": {
-			"id": "deepseek-v4-flash-vision-exp",
-			"name": "DeepSeek V4 Flash Vision Exp",
+		"deepseek-v4-flash": {
+			"id": "deepseek-v4-flash",
+			"name": "DeepSeek V4 Flash",
 			"api": "openai-completions",
 			"provider": "deepseek",
 			"baseUrl": "https://api.deepseek.com",
@@ -70335,13 +70334,15 @@
 				"image"
 			],
 			"cost": {
-				"input": 0.14,
-				"output": 0.28,
-				"cacheRead": 0.0028,
+				"input": 0.3,
+				"output": 1.2,
+				"cacheRead": 0.006,
 				"cacheWrite": 0
 			},
 			"contextWindow": 1000000,
 			"maxTokens": 384000,
+			"int": 51.8,
+			"tps": 140,
 			"compat": {
 				"supportsStore": false,
 				"supportsDeveloperRole": false,

@@ -6923,7 +6923,8 @@ function buildClinePassThinking(raw: ModelsDevModel, model: ModelSpec<Api>): Thi
 }
 
 /**
- * DeepSeek's V4-generation lineage (`v4`, `v4-flash`, `v4.1-pro`) by
+ * DeepSeek's V4-generation lineage (`v4`, `v4-flash`, `v4.1-pro`, and the
+ * bare `deepseek-flash` canonical id introduced for V4.1 Flash) by
  * structured family. The native roster serves only V4-era SKUs today; the
  * `tool_call` gate on the descriptor filters the rest.
  */

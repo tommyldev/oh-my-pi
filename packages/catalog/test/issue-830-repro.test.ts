@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { getOAuthProviders } from "@oh-my-pi/pi-ai/registry/oauth";
 import { getEnvApiKey } from "@oh-my-pi/pi-ai/stream";
+import { getBundledModels } from "@oh-my-pi/pi-catalog/models";
 import { DEFAULT_MODEL_PER_PROVIDER, PROVIDER_DESCRIPTORS } from "@oh-my-pi/pi-catalog/provider-models/descriptors";
 import { MODELS_DEV_PROVIDER_DESCRIPTORS } from "@oh-my-pi/pi-catalog/provider-models/openai-compat";
 import type { OpenAICompat } from "@oh-my-pi/pi-catalog/types";
@@ -9,9 +10,19 @@ describe("deepseek built-in provider (issue #830)", () => {
 	test("registers built-in runtime descriptor with DEEPSEEK_API_KEY env discovery", () => {
 		const descriptor = PROVIDER_DESCRIPTORS.find(item => item.providerId === "deepseek");
 		expect(descriptor).toBeDefined();
-		expect(descriptor?.defaultModel).toBe("deepseek-v4-pro");
+		expect(descriptor?.defaultModel).toBe("deepseek-flash");
 		expect(descriptor?.catalogDiscovery?.envVars).toContain("DEEPSEEK_API_KEY");
-		expect(DEFAULT_MODEL_PER_PROVIDER.deepseek).toBe("deepseek-v4-pro");
+		expect(DEFAULT_MODEL_PER_PROVIDER.deepseek).toBe("deepseek-flash");
+	});
+
+	test("V4.1 Flash migration (issue #11508) retires deepseek-v4-flash-vision-exp in favor of deepseek-flash", () => {
+		const ids = getBundledModels("deepseek").map(model => model.id);
+		expect(ids).toContain("deepseek-flash");
+		expect(ids).not.toContain("deepseek-v4-flash-vision-exp");
+		const flash = getBundledModels("deepseek").find(model => model.id === "deepseek-flash");
+		expect(flash?.input).toContain("image");
+		expect(flash?.maxTokens).toBe(384000);
+		expect(flash?.cost.input).toBe(0.3);
 	});
 
 	test("registers DeepSeek as an API-key login provider", () => {

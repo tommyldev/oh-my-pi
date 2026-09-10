@@ -5,7 +5,11 @@ class "deepseek" {
     family "r1" glob="*deepseek-r1*"
     family "reasoner" glob="*deepseek-reasoner*"
     family "flash" glob="*deepseek*v4*flash*"
+    // Bare V4.1 Flash canonical id (2026-09 release); retains the V4 flash rule above for legacy ids.
+    family "flash" glob="*deepseek-flash*"
     family "pro" glob="*deepseek*v4*pro*"
+    // Bare V4.1 Pro canonical id, per DeepSeek's stated V4.1 Pro plan.
+    family "pro" glob="*deepseek-pro*"
     // Bare V4 chat/reasoner ids without a flash/pro segment.
     family "v4" glob="*deepseek-v4*"
     family "v3" glob="*deepseek-v3*"

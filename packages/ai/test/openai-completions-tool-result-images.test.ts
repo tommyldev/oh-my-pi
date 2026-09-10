@@ -569,10 +569,10 @@ describe("openai-completions convertMessages", () => {
 			},
 		]);
 	});
-	it("preserves image_url for the multimodal DeepSeek vision SKU", () => {
-		// deepseek-v4-flash-vision-exp is genuinely multimodal: the blanket
-		// DeepSeek text-only guard must not strip its image parts.
-		const model = getBundledModel("deepseek", "deepseek-v4-flash-vision-exp") as Model<"openai-completions">;
+	it("preserves image_url for the multimodal DeepSeek V4.1 Flash SKU", () => {
+		// deepseek-flash (DeepSeek V4.1 Flash) is genuinely multimodal: the
+		// blanket DeepSeek text-only guard must not strip its image parts.
+		const model = getBundledModel("deepseek", "deepseek-flash") as Model<"openai-completions">;
 		const context: Context = {
 			messages: [
 				{

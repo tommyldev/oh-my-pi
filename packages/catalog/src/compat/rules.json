@@ -427,8 +427,18 @@
 						"priority": 0
 					},
 					{
+						"id": "flash",
+						"glob": "*deepseek-flash*",
+						"priority": 0
+					},
+					{
 						"id": "pro",
 						"glob": "*deepseek*v4*pro*",
+						"priority": 0
+					},
+					{
+						"id": "pro",
+						"glob": "*deepseek-pro*",
 						"priority": 0
 					},
 					{
@@ -7971,6 +7981,10 @@
 					{
 						"kind": "exact",
 						"value": "deepseek-v4-flash"
+					},
+					{
+						"kind": "exact",
+						"value": "deepseek-flash"
 					}
 				],
 				"wire": {
@@ -14777,6 +14791,14 @@
 				"match": {
 					"prefix": [
 						"accounts/fireworks/"
+					]
+				}
+			},
+			{
+				"provider": "deepseek",
+				"match": {
+					"exact": [
+						"deepseek-v4-flash-vision-exp"
 					]
 				}
 			},
